@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "ca01a20c-927d-451f-a7d9-c491000f6666",
+		"name": "GoRestAPI-Chaining Process Practice with Postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "45041434"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var random = Math.random().toString(36).substring(2);\r",
+							"\r",
+							"var username = \"jim\" + random;\r",
+							"var useremail = \"jim\"+ random + \"@gmail.com\";\r",
+							"\r",
+							"pm.environment.set(\"name_env\",username);\r",
+							"pm.environment.set(\"useremail_env\",useremail);\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.environment.set(\"userid_env\",jsonData.id);\r",
+							"\r",
+							"\r",
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([201, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 1000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(1000);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n   \t\"name\":\"{{name_env}}\", \r\n\t\"gender\":\"male\", \r\n\t\"email\":\"{{useremail_env}}\", \r\n\t\"status\":\"active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get User Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// Validating json fields in the response \r",
+							"\r",
+							"pm.test(\"Values of json fields\" , () => {\r",
+							"    var jsonData=pm.response.json();\r",
+							"\r",
+							"    pm.expect(jsonData.id).to.eql(pm.environment.get(\"userid_env\"));\r",
+							"    pm.expect(jsonData.email).to.eql(pm.environment.get(\"useremail_env\"));\r",
+							"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"name_env\"));\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n   \t\"name\":\"scott\", \r\n\t\"gender\":\"male\", \r\n\t\"email\":\"abc@gmail.com\", \r\n\t\"status\":\"inactive\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{userid_env}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{userid_env}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"var random = Math.random().toString(36).substring(2);\r",
+							"\r",
+							"var username = \"jim\" + random;\r",
+							"var useremail = \"jim\"+ random + \"@gmail.com\";\r",
+							"\r",
+							"pm.environment.set(\"name_env\",username);\r",
+							"pm.environment.set(\"email_env\",useremail);\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n   \t\"name\":\"{{name_env}}\", \r\n\t\"email\":\"{{useremail_env}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{userid_env}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{userid_env}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.environment.unset(\"userid_env\");\r",
+							"pm.environment.unset(\"name_env\");\r",
+							"pm.environment.unset(\"email_env\");"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n   \t\"name\":\"scott\", \r\n\t\"gender\":\"male\", \r\n\t\"email\":\"abc@gmail.com\", \r\n\t\"status\":\"inactive\"\r\n}"
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users/{{userid_env}}",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users",
+						"{{userid_env}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "c8157481d7a5f472255759d876398c32480bf1e27347eca40977a0610c398f80",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

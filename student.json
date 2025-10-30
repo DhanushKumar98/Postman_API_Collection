@@ -1,0 +1,110 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "age": 18,
+      "grade": "12th",
+      "subjects": [
+        "Math",
+        "Physics",
+        "English"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "age": 17,
+      "grade": "11th",
+      "subjects": [
+        "Biology",
+        "Chemistry",
+        "History"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "David Johnson",
+      "age": 16,
+      "grade": "10th",
+      "subjects": [
+        "Computer Science",
+        "Spanish",
+        "Art"
+      ]
+    },
+    {
+      "name": "lakshmi s",
+      "age": 45,
+      "grade": "Teaching Field",
+      "Phone No": "7639252026",
+      "city": "Arcot",
+      "state": "Tamil Nadu",
+      "subjects": [
+        "Accounts Departments",
+        "Hindi Teacher",
+        "Management"
+      ],
+      "id": "aa92"
+    },
+    {
+      "id": "64b1",
+      "name": "Shuba Shree",
+      "age": 31,
+      "grade": "DCE",
+      "Phone No": "123456789",
+      "city": "Ranipet",
+      "state": "Tamil Nadu",
+      "subjects": [
+        "Computer Science",
+        "Primary Teacher",
+        "Child Trainer"
+      ]
+    },
+    {
+      "id": "6027",
+      "name": "Shuba Shree",
+      "age": 31,
+      "grade": "DCE",
+      "Phone No": "123456789",
+      "city": "Ranipet",
+      "state": "Tamil Nadu",
+      "subjects": [
+        "Computer Science",
+        "Primary Teacher",
+        "Child Trainer"
+      ]
+    },
+    {
+      "id": "bffa",
+      "name": "Narasinga Rao",
+      "age": 50,
+      "job": "Press Reporter",
+      "Phone No": "9699111209",
+      "city": "Ramanagaram",
+      "state": "Karnataka",
+      "new paper": "samalocahna"
+    },
+    {
+      "id": "bcda",
+      "name": "Narasinga Rao",
+      "age": 50,
+      "job": "Press Reporter",
+      "Phone No": "9699111209",
+      "city": "Ramanagaram",
+      "state": "Karnataka",
+      "new paper": "samalocahna"
+    },
+    {
+      "id": "6551",
+      "name": "Remo",
+      "age": 27,
+      "grade": "SDET",
+      "subjects": [
+        "Math",
+        "Physics",
+        "English"
+      ]
+    }
+  ]
+}

@@ -31,69 +31,14 @@
       ]
     },
     {
-      "id": "5942",
-      "name": "dhanush",
-      "location": "India",
-      "phone": "8778718287",
+      "id": "af75",
       "courses": [
-        "Java",
-        "Selenium",
-        "Postman",
-        "RestAPI",
-        "Playwright"
-      ]
-    },
-    {
-      "id": "2120",
-      "name": "dhanush",
-      "location": "India",
-      "phone": "8778718287",
-      "courses": [
-        "Java",
-        "Selenium",
-        "Postman",
-        "RestAPI",
-        "Playwright"
-      ]
-    },
-    {
-      "id": "9056",
-      "name": "dhanush",
-      "location": "India",
-      "phone": "8778718287",
-      "courses": [
-        "Java",
-        "Selenium",
-        "Postman",
-        "RestAPI",
-        "Playwright"
-      ]
-    },
-    {
-      "id": "3049",
-      "name": "dhanush",
-      "location": "India",
-      "phone": "8778718287",
-      "courses": [
-        "Java",
-        "Selenium",
-        "Postman",
-        "RestAPI",
-        "Playwright"
-      ]
-    },
-    {
-      "id": "2673",
-      "name": "dhanush",
-      "location": "India",
-      "phone": "8778718287",
-      "courses": [
-        "Java",
-        "Selenium",
-        "Postman",
-        "RestAPI",
-        "Playwright"
-      ]
+        "C",
+        "C++"
+      ],
+      "phone": "123456",
+      "name": "Scott",
+      "location": "France"
     }
   ]
 }
